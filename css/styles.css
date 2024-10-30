@@ -1,0 +1,231 @@
+.jobs-that-makesense_list
+{
+    display: grid;
+    grid-gap: 0;
+    grid-gap: 20px;
+    --grid-cols: 12;
+    grid-template-columns: repeat(var(--grid-cols),1fr);
+    margin-bottom: 50px;
+    transition: opacity 0.5s;
+}
+
+.jobs-that-makesense_list.--loading
+{
+    opacity: 0.5;
+}
+
+.jobs-that-makesense_list div:before {
+    display: none !important;
+}
+
+.jobs-that-makesense_list div::before,
+.jobs-that-makesense_list div::after {
+    display: none !important;
+}
+
+
+.jobs-that-makesense_list .job,
+.jobs-that-makesense_list .project
+{
+    display: block;
+    text-decoration: none !important;
+    --span: 6;
+    grid-column: span var(--span,12)/span var(--span,12);
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+
+.jobs-that-makesense_list .job:hover,
+.jobs-that-makesense_list .project:hover {
+        background-color: #fff;
+}
+
+.jobs-that-makesense_list.jobs-that-makesense_column-1 .job,
+.jobs-that-makesense_list.jobs-that-makesense_column-1 .project {
+        --span: 12;
+    grid-column: span var(--span,12)/span var(--span,12);
+}
+
+.jobs-that-makesense_list.jobs-that-makesense_column-3 .job,
+.jobs-that-makesense_list.jobs-that-makesense_column-3 .project {
+    --span: 4;
+    grid-column: span var(--span,12)/span var(--span,12);
+}
+
+.jobs-that-makesense_list .job .job__project
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.jobs-that-makesense_list .job .job__project .project__name
+{
+    font-size: 0.9em;
+    font-weight: 800;
+}
+
+.jobs-that-makesense_list .job .job__project .project__logotype 
+{
+    margin-right: 10px;
+}
+
+.jobs-that-makesense_list .job .job__project .project__logotype img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+.jobs-that-makesense_list .job .job__title
+{
+    margin-top: 0px;
+    margin-bottom: 0.3em;
+    font-size: 1.2em;
+    overflow-wrap: break-word;
+}
+
+.jobs-that-makesense_list .job:hover .job__title
+{
+    text-decoration: underline !important;
+}
+
+.jobs-that-makesense_list .job .job__mission
+{
+    font-size: 0.8em;
+    margin-bottom: 0.6em;
+}
+
+.jobs-that-makesense .job .job__project-name {
+    font-size: 1em;
+    margin-bottom: 0.6em;
+}
+
+.jobs-that-makesense_list .job .job__company
+{
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.jobs-that-makesense_list .job .job__date
+{
+    font-weight: 400;
+}
+
+.jobs-that-makesense_pagination {
+    grid-column: span 12 / span 12;
+    margin: 0 auto;
+}
+
+.jobs-that-makesense_modal {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jobs-that-makesense_modal.open {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+.jobs-that-makesense_modal-bg {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);                
+    width: 100%;
+    height: 100%;
+}
+.jobs-that-makesense_modal-container {
+    background: #fff;
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px -2px rgba(27 33 58 / 40%);
+    overflow: hidden;
+}
+
+.jobs-that-makesense_modal-container iframe {
+    border: none;
+    width: 100%;
+    display: block;
+    height: 100vh;
+}
+.jobs-that-makesense_modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    outline: none;
+    appearance: none;
+    background: none;
+    border: 0px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.jobs-that-makesense_modal-close:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .jobs-that-makesense_modal-container iframe {
+        border: none;
+        width: 100%;
+        height: 90vh;
+    }
+}
+
+.jobs-that-makesense_list .project {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.jobs-that-makesense_list .project .project__visuals
+{
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.jobs-that-makesense_list .project .project__visuals .project__logotype
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+    object-fit: contain;
+    background-color: #fff;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.jobs-that-makesense_list .project .project__informations
+{
+    padding: 20px;
+}
+.jobs-that-makesense_list .project .project__informations .project__name
+{
+    margin-top: 0px;
+    margin-bottom: 0.3em;
+    font-size: 1.2em;
+    overflow-wrap: break-word;
+}
